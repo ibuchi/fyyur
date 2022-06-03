@@ -7,6 +7,7 @@ from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
 app = Flask(__name__)
 migrate = Migrate(db, app)
+
 #Show table
 class Show(db.Model):
     __tablename__ = 'show'
@@ -16,7 +17,7 @@ class Show(db.Model):
     venue_id = db.Column(db.Integer, db.ForeignKey('venue.id'), nullable=False)
 
 
-
+#Venue Table
 class Venue(db.Model):
     __tablename__ = 'venue'
 
@@ -39,7 +40,7 @@ class Venue(db.Model):
         return f'< venue {self.id} {self.name} {self.city}>'
 
     # TODO: implement any missing fields, as a database migration using Flask-Migrate
-
+#Artist Table
 class Artist(db.Model):
     __tablename__ = 'artist'
 
@@ -48,7 +49,6 @@ class Artist(db.Model):
     city = db.Column(db.String(120))
     state = db.Column(db.String(120))
     phone = db.Column(db.String(120))
-    #genres = db.Column(db.PickleType, default=[], nullable=False)
     image_link = db.Column(db.String(500))
     facebook_link = db.Column(db.String(120))
     website_link = db.Column(db.String(100))
