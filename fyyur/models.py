@@ -8,6 +8,10 @@ db = SQLAlchemy()
 app = Flask(__name__)
 migrate = Migrate(db, app)
 
+#-------------------------------------------------------------------------------------------------------------------------------------------#
+#                                               A One to Many Relationship
+#-------------------------------------------------------------------------------------------------------------------------------------------#
+
 #Show table
 class Show(db.Model):
     __tablename__ = 'show'
@@ -39,7 +43,6 @@ class Venue(db.Model):
     def __repr__(self):
         return f'< venue {self.id} {self.name} {self.city}>'
 
-    # TODO: implement any missing fields, as a database migration using Flask-Migrate
 #Artist Table
 class Artist(db.Model):
     __tablename__ = 'artist'
